@@ -1,11 +1,11 @@
 const mongoose=require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/LoginSignup")
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     console.log('mongoose connected');
 })
-.catch(()=>{
-    console.log('failed');
+.catch((err)=>{
+    console.log(err);
 })
 
 const logInSchema=new mongoose.Schema({
